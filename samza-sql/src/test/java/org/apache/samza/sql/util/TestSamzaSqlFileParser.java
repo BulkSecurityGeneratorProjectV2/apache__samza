@@ -22,6 +22,7 @@ package org.apache.samza.sql.util;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
@@ -38,7 +39,7 @@ public class TestSamzaSqlFileParser {
 
   @Test
   public void testParseSqlFile() throws IOException {
-    File tempFile = File.createTempFile("testparser", "");
+    File tempFile = Files.createTempFile("testparser", "").toFile();
     PrintWriter fileWriter = new PrintWriter(tempFile.getCanonicalPath());
     fileWriter.println(TEST_SQL);
     fileWriter.close();
